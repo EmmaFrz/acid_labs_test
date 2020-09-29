@@ -1,11 +1,18 @@
 import React, {Component} from 'react';
 import Api from '../resources/api';
+import TestWrapper from '../components/testWrapper';
+
 class TestContainer extends Component {
-    
+    state = {
+        posts: [],
+    }
+
     componentDidMount = async () => {
         try{
             const response = await Api.getAll();
-            console.log(response);
+            this.setState({
+                posts:response.data.data.posts.data
+            })
         }catch(error){
             console.log(error);
         }
@@ -13,9 +20,9 @@ class TestContainer extends Component {
     
     render = () => {
         return(
-            <div>
-                This is a test
-            </div>
+            <TestWrapper 
+                posts={this.state.posts}
+            />
         );
     }
 }
