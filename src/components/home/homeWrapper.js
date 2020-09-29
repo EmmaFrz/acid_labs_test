@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom'
-import './css/testStyles.css'
+import '../css/testStyles.css'
 
-const TestWrapper = (props) => {
+const HomeWrapper = (props) => {
     return(
         <Fragment>
             <center><h3>Todos los posts</h3></center>
@@ -21,4 +21,4 @@ const TestWrapper = (props) => {
     );
 };
 
-export default TestWrapper;
+export default HomeWrapper;

@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import Api from '../resources/api';
-import TestWrapper from '../components/testWrapper';
-
-class TestContainer extends Component {
+import Api from '../../resources/api';
+import HomeWrapper from '../../components/home/homeWrapper';
+class HomeContainer extends Component {
     state = {
         posts: [],
     }
@@ -20,11 +19,11 @@ class TestContainer extends Component {
     
     render = () => {
         return(
-            <TestWrapper 
+            <HomeWrapper 
                 posts={this.state.posts}
             />
         );
     }
 }
 
-export default TestContainer;
+export default HomeContainer;

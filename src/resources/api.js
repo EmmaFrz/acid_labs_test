@@ -14,8 +14,23 @@ const Api = {
         } catch (error) {
             return error;
         }
+    },
+    getPost: (id) => {
+        let response = axios({
+            baseURL:'https://graphqlzero.almansi.me/api',
+            method:'post',
+            data: {
+                query: `query { post(id: ${id}) { id title body } }`
+            }
+        });
+        try {
+            return response;
+        } catch (error) {
+            return error;
+        }
     }
 }
+
 
 export default Api;
 
