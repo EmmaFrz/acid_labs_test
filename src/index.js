@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import TestContainer from './container/testContainer';
+import Routes from './routes'
 
 ReactDOM.render(
   <React.StrictMode>
-    <TestContainer />
+    <Routes />
   </React.StrictMode>,
   document.getElementById('root')
 );
