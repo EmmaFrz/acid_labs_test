@@ -6,16 +6,37 @@ class PostContainer extends Component {
     state = {
         post: {},
         isLoading: true,
-        error:null
+        error:null,
+        isDeleted:false
     }
 
     deletePost = async () => {
+        this.setState({
+            isLoading:true,
+            isDeleted:false,
+            error:null
+        })
         try{
             const response = await Api.deletePost(this.props.match.params.id);
-            console.log(response)
+            this.setState({
+                isLoading:false,
+            })
+            console.log(response);
+            this.props.history.push('/')
         }catch(error){
+            this.setState({
+                isDeleted:false,
+                isLoading:false,
+                error:error
+            })
             console.log(error);
         }
+    }
+
+    modalHandler = () => {
+        this.setState({
+            isDeleted: !this.state.isDeleted
+        });
     }
 
     redirectToUpdatePost = (id) => {
@@ -48,6 +69,8 @@ class PostContainer extends Component {
                 deletePost={this.deletePost}
                 redirectToUpdatePost={this.redirectToUpdatePost}
                 isLoading={this.state.isLoading}
+                modalHandler={this.modalHandler}
+                isDeleted={this.state.isDeleted}
             />
         );
     }
