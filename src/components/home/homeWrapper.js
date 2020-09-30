@@ -15,7 +15,7 @@ const HomeWrapper = (props) => {
                 <h2>Todos los posts</h2>
             </center>
             <div className={'containerPosts'}>
-                {props.posts.map( (data, idx) => {
+                {props.posts.slice(0,12).map( (data, idx) => {
                     return (
                         <center key={idx}>
                             <Link to={`/post/${data.id}`}>

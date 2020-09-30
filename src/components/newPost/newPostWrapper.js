@@ -32,7 +32,7 @@ const PostWrapper = (props) => {
                 <center>
                     <button className="distance buttonStyle buttonConfirm" onClick={() => props.closeModal()}>Aceptar</button>
                     <br /><br />
-                    <button className="distance buttonStyle buttonCancel" onClick={() => props.returnFormModal()}>Regresar</button>
+                    <button className="distance buttonStyle buttonCancel" onClick={() => props.returnFormModal()}>Regresar al Inicio</button>
                 </center>
             </Modal>
         </Fragment>
