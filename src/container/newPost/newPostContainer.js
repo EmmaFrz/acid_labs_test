@@ -8,18 +8,31 @@ class PostContainer extends Component {
             title: '',
             body:''
         },
+        isLoading: false,
+        error:null
     }
 
     createNewPost = async () => {
+        this.setState({
+            isLoading: true,
+            error:null
+        });
         const input = {
             title: this.state.formValue.title,
             body: this.state.formValue.body
         }
         try {
             const response = await Api.createPost(input);
-            console.log(response)
+            this.setState({
+                isLoading: false,
+            })
+            console.log(response);
             
         } catch (error) {
+            this.setState({
+                isLoading: false,
+                error:null
+            })
             console.log(error);
         }
     }
@@ -54,6 +67,7 @@ class PostContainer extends Component {
     render = () => {
         return(
             <NewPostWrapper
+                isLoading={this.state.isLoading}
                 formValue={this.state.formValue}
                 handleChange={this.handleChange}
                 createNewPost={this.createNewPost}

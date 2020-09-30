@@ -1,11 +1,14 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../commons/header';
+import Loader from '../commons/loader';
 import '../css/testStyles.css';
 
 const PostWrapper = (props) => {
+    console.log(props)
     return(
         <Fragment>
+            <Loader isLoading={props.isLoading} />
             <Header>
                 <Link to='/'>Inicio</Link>
             </Header>

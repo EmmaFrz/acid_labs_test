@@ -9,6 +9,8 @@ class PostContainer extends Component {
             body:'',
             id:''
         },
+        isLoading: true,
+        error:null
     }
 
     // eslint-disable-next-line no-restricted-globals
@@ -39,6 +41,9 @@ class PostContainer extends Component {
     }
 
     updatePost = async () => {
+        this.setState({
+            isLoading:true
+        });
         const input = {
             title:this.state.formValue.title,
             body:this.state.formValue.body,
@@ -46,19 +51,34 @@ class PostContainer extends Component {
         }
         try {
             const response = await Api.updatePost(input)
+            this.setState({
+                isLoading:false
+            });
             console.log(response)
         } catch (error) {
+            this.setState({
+                isLoading:false,
+                error:error
+            });
             console.log(error)
         }
     }
 
     componentDidMount = async () => {
+        this.setState({
+            isLoading:true
+        });
         try{
             const response = await Api.getPost(this.props.match.params.id);
             this.setState({
-                formValue:response.data.data.post
+                formValue:response.data.data.post,
+                isLoading:false
             });
         }catch(error){
+            this.setState({
+                isLoading:false,
+                error:error
+            });
             console.log(error);
         }
     }
@@ -69,6 +89,7 @@ class PostContainer extends Component {
                 formValue={this.state.formValue}
                 handleChange={this.handleChange}
                 updatePost={this.updatePost}
+                isLoading={this.state.isLoading}
             />
         );
     }
