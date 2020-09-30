@@ -1,6 +1,8 @@
 import React from 'react';
 import HomeContainer from './container/home/homeContainer';
 import PostContainer from './container/post/postContainer';
+import NewPostContainer from './container/newPost/newPostContainer';
+
 import {
   BrowserRouter as Router,
   Route,
@@ -11,6 +13,7 @@ const PageRouter = () => {
         <Router>
             <Route exact path='/' component={HomeContainer} />
             <Route exact path='/post/:id' component={PostContainer} />
+            <Route exact path='/new' component={NewPostContainer} />
         </Router>
     );
 }

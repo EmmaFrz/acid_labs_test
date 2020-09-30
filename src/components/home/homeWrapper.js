@@ -5,6 +5,7 @@ import '../css/testStyles.css'
 const HomeWrapper = (props) => {
     return(
         <Fragment>
+            <Link to='/new'>Nuevo Post</Link>
             <center><h3>Todos los posts</h3></center>
             <div className={'containerPosts'}>
                 {props.posts.map( (data, idx) => {

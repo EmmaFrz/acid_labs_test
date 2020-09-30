@@ -10,7 +10,6 @@ class PostContainer extends Component {
     componentDidMount = async () => {
         try{
             const response = await Api.getPost(this.props.match.params.id);
-            console.log(response.data.data.post)
             this.setState({
                 post:response.data.data.post
             })
