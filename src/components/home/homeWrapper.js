@@ -1,11 +1,13 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../commons/header';
+import Loader from '../commons/loader';
 import '../css/testStyles.css';
 
 const HomeWrapper = (props) => {
     return(
         <Fragment>
+            <Loader isLoading={props.isLoading} />
             <Header>
                 <Link to='/new'>Nuevo Post</Link>
             </Header>
