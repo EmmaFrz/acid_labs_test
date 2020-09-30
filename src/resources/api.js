@@ -30,7 +30,6 @@ const Api = {
         }
     },
     createPost: (input) => {
-        console.log(input)
         let response = axios({
             baseURL:'https://graphqlzero.almansi.me/api',
             method:'post',
@@ -43,8 +42,23 @@ const Api = {
         } catch (error) {
             return error;
         }
-    }
+    },
+    deletePost: (id) => {
+        let response = axios({
+            baseURL:'https://graphqlzero.almansi.me/api',
+            method:'post',
+            data: {
+                query: `mutation { deletePost(id: ${id}) }`
+            }
+        });
+        try {
+            return response;
+        } catch (error) {
+            return error;
+        }
+    },
 }
+
 
 export default Api;
 
