@@ -9,14 +9,16 @@ const HomeWrapper = (props) => {
             <Header>
                 <Link to='/new'>Nuevo Post</Link>
             </Header>
-            <center><h3>Todos los posts</h3></center>
+            <center>
+                <h2>Todos los posts</h2>
+            </center>
             <div className={'containerPosts'}>
                 {props.posts.map( (data, idx) => {
                     return (
                         <center key={idx}>
-                            <h6>
+                            <h5>
                                 <Link to={`/post/${data.id}`}>{data.title}</Link> 
-                            </h6>
+                            </h5>
                         </center>
                     );
                 })}

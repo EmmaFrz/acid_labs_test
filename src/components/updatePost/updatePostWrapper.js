@@ -1,12 +1,15 @@
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom'
-import '../css/testStyles.css'
+import { Link } from 'react-router-dom';
+import Header from '../commons/header';
+import '../css/testStyles.css';
 
 const PostWrapper = (props) => {
     return(
         <Fragment>
-            <Link to='/'>Home</Link> 
-            <Link to={`/post/${props.formValue.id}`} className="distance">Regresar</Link>
+            <Header>
+                <Link to='/'>Inicio</Link> 
+                <Link to={`/post/${props.formValue.id}`} className="distance">Regresar</Link>
+            </Header>
             <center>
                 <h3>Nuevo Post</h3>
                 <label>Titulo</label>
