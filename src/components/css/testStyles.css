@@ -1,5 +1,56 @@
+a{
+    text-decoration: none;
+}
+
+.distance{
+    margin-left: 20px;
+}
+
+.buttonStyle{
+    color: white;
+    border-radius: 5px;
+    width: 150px;
+    height: 35px;
+}
+
+.buttonConfirm{
+    border: 0px;
+    border-bottom: 4px solid #394F00;
+    background-color: #658B00;
+}
+
+.buttonDelete{
+    border: 0px;
+    border-bottom: 4px solid #710000;
+    background-color: #C60000;
+}
+
 .containerPosts{
     display: grid;
     grid-template-columns:repeat(4,1fr);
     gap:5px;
 }
+
+.header{
+    width: 100%;
+    padding-top: 20px;
+    height: 50px;
+    background-color: #1F5AA5;
+}
+
+.header a{
+    color: white;
+}
+
+@media (max-width: 768px){
+    .containerPosts{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 480px){
+    .containerPosts{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+

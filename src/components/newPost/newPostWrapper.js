@@ -17,7 +17,7 @@ const PostWrapper = (props) => {
                 <textarea rows="4" cols="50" value={props.formValue.body} name='body' onChange={props.handleChange}>
                 </textarea>
                 <br/>
-                <input type='submit' onClick={props.createNewPost} />
+                <input type='submit' className="buttonStyle buttonConfirm" onClick={props.createNewPost} />
             </center>
             
         </Fragment>
