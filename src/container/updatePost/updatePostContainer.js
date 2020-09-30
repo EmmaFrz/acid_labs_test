@@ -10,7 +10,8 @@ class PostContainer extends Component {
             id:''
         },
         isLoading: true,
-        error:null
+        error:null,
+        isDeleted:false
     }
 
     // eslint-disable-next-line no-restricted-globals
@@ -52,7 +53,8 @@ class PostContainer extends Component {
         try {
             const response = await Api.updatePost(input)
             this.setState({
-                isLoading:false
+                isLoading:false,
+                isDeleted:true,
             });
             console.log(response)
         } catch (error) {
@@ -62,6 +64,10 @@ class PostContainer extends Component {
             });
             console.log(error)
         }
+    }
+
+    returnFormModal = () => {
+        this.props.history.push(`/post/${this.props.match.params.id}`);
     }
 
     componentDidMount = async () => {
@@ -89,7 +95,9 @@ class PostContainer extends Component {
                 formValue={this.state.formValue}
                 handleChange={this.handleChange}
                 updatePost={this.updatePost}
+                returnFormModal={this.returnFormModal}
                 isLoading={this.state.isLoading}
+                isDeleted={this.state.isDeleted}
             />
         );
     }

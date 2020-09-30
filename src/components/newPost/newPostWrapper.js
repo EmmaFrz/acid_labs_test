@@ -2,6 +2,8 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../commons/header';
 import Loader from '../commons/loader';
+import { Modal } from 'react-responsive-modal';
+import 'react-responsive-modal/styles.css';
 import '../css/testStyles.css';
 
 const PostWrapper = (props) => {
@@ -24,7 +26,15 @@ const PostWrapper = (props) => {
                 <br/>
                 <input type='submit' className="buttonStyle buttonConfirm" onClick={props.createNewPost} />
             </center>
-            
+            <Modal open={props.isDeleted} onClose={() => props.closeModal()} center>
+                <h4>Se ha creado el post correctamente</h4>
+                <p>¿Deseas crear otro post?</p>
+                <center>
+                    <button className="distance buttonStyle buttonConfirm" onClick={() => props.closeModal()}>Aceptar</button>
+                    <br /><br />
+                    <button className="distance buttonStyle buttonCancel" onClick={() => props.returnFormModal()}>Regresar</button>
+                </center>
+            </Modal>
         </Fragment>
     );
 };

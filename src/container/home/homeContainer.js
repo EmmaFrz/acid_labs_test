@@ -5,7 +5,8 @@ class HomeContainer extends Component {
     state = {
         posts: [],
         isLoading: true,
-        error:null
+        error:null,
+        images:[]
     }
 
     componentDidMount = async () => {
@@ -15,8 +16,10 @@ class HomeContainer extends Component {
         })
         try{
             const response = await Api.getAll();
+            const images = await Api.getImages();
             this.setState({
                 posts:response.data.data.posts.data,
+                images: images.data,
                 isLoading:false
             })
         }catch(error){
@@ -33,6 +36,7 @@ class HomeContainer extends Component {
             <HomeWrapper 
                 posts={this.state.posts}
                 isLoading={this.state.isLoading}
+                images={this.state.images}
             />
         );
     }

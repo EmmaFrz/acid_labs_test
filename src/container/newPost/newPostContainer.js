@@ -9,7 +9,8 @@ class PostContainer extends Component {
             body:''
         },
         isLoading: false,
-        error:null
+        error:null,
+        isDeleted:false
     }
 
     createNewPost = async () => {
@@ -25,6 +26,11 @@ class PostContainer extends Component {
             const response = await Api.createPost(input);
             this.setState({
                 isLoading: false,
+                isDeleted:true,
+                formValue: {
+                    title: '',
+                    body:''
+                }
             })
             console.log(response);
             
@@ -64,13 +70,26 @@ class PostContainer extends Component {
         }
     }
     
+    closeModal = () => {
+        this.setState({
+            isDeleted:false,
+        });
+    }
+
+    returnFormModal = () => {
+        this.props.history.push('/');
+    } 
+    
     render = () => {
         return(
             <NewPostWrapper
                 isLoading={this.state.isLoading}
                 formValue={this.state.formValue}
+                isDeleted={this.state.isDeleted}
                 handleChange={this.handleChange}
                 createNewPost={this.createNewPost}
+                closeModal={this.closeModal}
+                returnFormModal={this.returnFormModal}
             />
         );
     }

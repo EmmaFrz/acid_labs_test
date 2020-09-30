@@ -18,9 +18,12 @@ const HomeWrapper = (props) => {
                 {props.posts.map( (data, idx) => {
                     return (
                         <center key={idx}>
-                            <h5>
-                                <Link to={`/post/${data.id}`}>{data.title}</Link> 
-                            </h5>
+                            <Link to={`/post/${data.id}`}>
+                                <h5>
+                                    {data.title}
+                                </h5>
+                                <img src={props.images[Math.floor(Math.random()*30)].urls.small} alt={idx} width={100} height={100} />
+                            </Link>
                         </center>
                     );
                 })}
