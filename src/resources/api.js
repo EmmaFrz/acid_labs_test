@@ -34,7 +34,7 @@ const Api = {
             baseURL:'https://graphqlzero.almansi.me/api',
             method:'post',
             data: {
-                query: `mutation { createPost(input: {title:"${input.title}", body:"${input.body}"}) { id title body } }`
+                query: `mutation { createPost(input: {title:"${input.title}", body:"""${input.body}"""}) { id title body } }`
             }
         });
         try {
@@ -57,8 +57,21 @@ const Api = {
             return error;
         }
     },
+    updatePost: (input) => {
+        let response = axios({
+            baseURL:'https://graphqlzero.almansi.me/api',
+            method:'post',
+            data: {
+                query: `mutation{ updatePost(id: ${input.id}, input:{title:"${input.title}", body:"""${input.body}"""}) { id title body } } `
+            }
+        });
+        try {
+            return response;
+        } catch (error) {
+            return error;
+        }
+    },
 }
-
 
 export default Api;
 
