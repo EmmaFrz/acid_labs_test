@@ -7,7 +7,8 @@ class PostContainer extends Component {
         post: {},
         isLoading: true,
         error:null,
-        isDeleted:false
+        isDeleted:false,
+        deletedMessage: false,
     }
 
     deletePost = async () => {
@@ -20,9 +21,10 @@ class PostContainer extends Component {
             const response = await Api.deletePost(this.props.match.params.id);
             this.setState({
                 isLoading:false,
+                deletedMessage:true,
+                isDeleted:true,
             })
             console.log(response);
-            this.props.history.push('/')
         }catch(error){
             this.setState({
                 isDeleted:false,
@@ -31,6 +33,10 @@ class PostContainer extends Component {
             })
             console.log(error);
         }
+    }
+
+    returnToHome = () => {
+        this.props.history.push('/')
     }
 
     modalHandler = () => {
@@ -71,6 +77,8 @@ class PostContainer extends Component {
                 isLoading={this.state.isLoading}
                 modalHandler={this.modalHandler}
                 isDeleted={this.state.isDeleted}
+                deletedMessage={this.state.deletedMessage}
+                returnToHome={this.returnToHome}
             />
         );
     }

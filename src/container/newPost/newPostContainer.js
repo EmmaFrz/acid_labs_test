@@ -23,7 +23,7 @@ class PostContainer extends Component {
             body: this.state.formValue.body
         }
         try {
-            const response = await Api.createPost(input);
+            await Api.createPost(input);
             this.setState({
                 isLoading: false,
                 isDeleted:true,
@@ -31,9 +31,7 @@ class PostContainer extends Component {
                     title: '',
                     body:''
                 }
-            })
-            console.log(response);
-            
+            })            
         } catch (error) {
             this.setState({
                 isLoading: false,
