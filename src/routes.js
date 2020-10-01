@@ -3,6 +3,7 @@ import HomeContainer from './container/home/homeContainer';
 import PostContainer from './container/post/postContainer';
 import NewPostContainer from './container/newPost/newPostContainer';
 import UpdatePostContainer from './container/updatePost/updatePostContainer';
+import Footer from './components/commons/footer'
 
 import {
   BrowserRouter as Router,
@@ -16,6 +17,7 @@ const PageRouter = () => {
             <Route exact path='/post/:id' component={PostContainer} />
             <Route exact path='/new' component={NewPostContainer} />
             <Route exact path='/update/:id' component={UpdatePostContainer} />
+            <Footer />
         </Router>
     );
 }

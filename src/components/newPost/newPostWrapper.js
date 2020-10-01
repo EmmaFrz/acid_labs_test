@@ -4,7 +4,7 @@ import Header from '../commons/header';
 import Loader from '../commons/loader';
 import { Modal } from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
-import '../css/testStyles.css';
+import '../../resources/css/testStyles.css'
 
 const PostWrapper = (props) => {
     return(

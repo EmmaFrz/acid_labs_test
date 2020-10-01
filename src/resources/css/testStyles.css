@@ -1,3 +1,7 @@
+:root{
+    --main-color: #DE4F4F;
+}
+
 a{
     text-decoration: none;
 }
@@ -56,7 +60,7 @@ p{
     width: 100%;
     padding-top: 20px;
     height: 50px;
-    background-color: #DE4F4F;
+    background-color:var(--main-color);
 }
 
 .header a{
@@ -75,6 +79,17 @@ p{
     height: 850px;
     z-index:0;
 }
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background-color: var(--main-color);
+    color: white;
+    text-align: center;
+  }
 
 @media (max-width: 768px){
     textarea{

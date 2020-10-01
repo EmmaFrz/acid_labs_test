@@ -1,45 +1,47 @@
-import React, {Component} from 'react';
+import React, { useEffect, useState } from 'react';
 import Api from '../../resources/api';
 import HomeWrapper from '../../components/home/homeWrapper';
-class HomeContainer extends Component {
-    state = {
-        posts: [],
-        isLoading: true,
-        error:null,
-        images:[]
-    }
 
-    componentDidMount = async () => {
-        this.setState({
-            isLoading: true,
-            error:null
-        })
-        try{
-            const response = await Api.getAll();
-            const images = await Api.getImages();
-            this.setState({
-                posts:response.data.data.posts.data,
-                images: images.data,
-                isLoading:false
-            })
-        }catch(error){
-            console.log(error);
-            this.setState({
-                isLoading:false,
-                error: error
-            })
+const Home = () => {
+    const [posts, setPosts] = useState([]);
+    const [images, setImage] = useState([]);
+    const [isLoading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            setLoading(true);
+            try{
+                const response = await Api.getAll();
+                setPosts(response.data.data.posts.data);
+                setLoading(false);
+            }catch(err){
+                console.log(err);
+                setLoading(false);
+            }
+        };
+        const fetchImages = async () => {
+            setLoading(true);
+            try{
+                const imagenes = await Api.getImages();
+                setImage(imagenes.data);
+                setLoading(false);
+            }catch(err){
+                console.log(err);
+                setLoading(false);
+            }
         }
-    }
+        fetchData();
+        fetchImages();
+    }, [])
 
-    render = () => {
-        return(
-            <HomeWrapper 
-                posts={this.state.posts}
-                isLoading={this.state.isLoading}
-                images={this.state.images}
-            />
-        );
-    }
+    return(
+        <HomeWrapper 
+            posts={posts}
+            isLoading={isLoading}
+            images={images}
+        />
+    );
+
 }
 
-export default HomeContainer;
+export default Home;
