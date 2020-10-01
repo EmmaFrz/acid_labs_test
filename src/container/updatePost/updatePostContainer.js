@@ -51,7 +51,7 @@ class PostContainer extends Component {
             id: this.state.formValue.id
         }
         try {
-            const response = await Api.updatePost(input)
+            await Api.updatePost(input)
             this.setState({
                 isLoading:false,
                 isDeleted:true,
