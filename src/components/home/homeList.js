@@ -6,7 +6,7 @@ const HomeList = (props) => {
     return(
         <Fragment>
             <div className={'containerPosts'}>
-                {props.posts.slice(0,12).map( (data, idx) => {
+                {props.posts.map( (data, idx) => {
                     return (
                         <center key={idx} className='postItem'>
                             <Link to={`/post/${data.id}`}>
