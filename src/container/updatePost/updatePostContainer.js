@@ -56,7 +56,6 @@ class PostContainer extends Component {
                 isLoading:false,
                 isDeleted:true,
             });
-            console.log(response)
         } catch (error) {
             this.setState({
                 isLoading:false,
