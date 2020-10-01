@@ -8,7 +8,7 @@ const HomeList = (props) => {
             <div className={'containerPosts'}>
                 {props.posts.slice(0,12).map( (data, idx) => {
                     return (
-                        <center key={idx}>
+                        <center key={idx} className='postItem'>
                             <Link to={`/post/${data.id}`}>
                                 <h5>
                                     {data.title}
