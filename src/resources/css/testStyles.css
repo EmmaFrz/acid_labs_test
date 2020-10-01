@@ -102,6 +102,12 @@ p{
     box-shadow: 6px 15px 42px -13px rgba(0,0,0,0.45);
 }
 
+@media (max-width: 1024px){
+    .containerPosts{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 @media (max-width: 768px){
     textarea{
         width: 650px;
