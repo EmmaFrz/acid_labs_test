@@ -3,7 +3,7 @@ import { Modal } from 'react-responsive-modal';
 import 'react-responsive-modal/styles.css';
 import '../../resources/css/testStyles.css'
 
-const PostWrapper = (props) => {
+const PostModal = (props) => {
     return(
         <Fragment>
             <Modal open={props.isDeleted} onClose={() => props.closeModal()} center>
@@ -19,4 +19,4 @@ const PostWrapper = (props) => {
     );
 };
 
-export default PostWrapper;
+export default PostModal;

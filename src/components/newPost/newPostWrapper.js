@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { Modal } from 'react-responsive-modal';
 import Header from '../commons/header';
 import Loader from '../commons/loader';
 import NewPostForm from './newPostForm';
